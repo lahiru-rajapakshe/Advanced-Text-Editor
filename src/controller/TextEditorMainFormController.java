@@ -138,4 +138,12 @@ txtArea.clear();
         txtArea.insertText(caretPosition, Copy);
         txtArea.insertText(caretPosition, cut);
     }
+
+    public void menuCut_OnAction(ActionEvent event) {
+        byte[] bytes = txtArea.getSelectedText().getBytes(StandardCharsets.UTF_8);
+        cut = new String(bytes);
+        int caretPosition = txtArea.getCaretPosition();
+        txtArea.setText(txtArea.getText().replace(txtArea.getSelectedText(), ""));
+        txtArea.positionCaret(caretPosition);
+    }
 }

@@ -30,7 +30,7 @@
                       </Menu>
                       <Menu mnemonicParsing="false" text="Edit">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="Cut" />
+                          <MenuItem mnemonicParsing="false" onAction="#menuCut_OnAction" text="Cut" />
                               <MenuItem mnemonicParsing="false" text="Copy" />
                               <MenuItem mnemonicParsing="false" text="Paste" />
                               <MenuItem mnemonicParsing="false" text="Selet all" />
@@ -68,6 +68,7 @@
                   <Label fx:id="lblWordCount" layoutX="617.0" layoutY="2.0" text="Label" />
                </children>
             </AnchorPane>
+            <JFXButton fx:id="btnPaste" buttonType="RAISED" layoutX="404.0" layoutY="67.0" onAction="#btnPaste_OnAction" style="-fx-background-color: #12a6ea;" text="Paste" />
          </children>
       </AnchorPane>
    </children>
