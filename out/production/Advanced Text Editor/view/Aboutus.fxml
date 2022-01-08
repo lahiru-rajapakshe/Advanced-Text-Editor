@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="319.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AboutusController">
+   <children>
+      <AnchorPane prefHeight="331.0" prefWidth="600.0">
+         <children>
+            <AnchorPane prefHeight="331.0" prefWidth="204.0" style="-fx-background-color: #27a6e1;">
+               <children>
+                  <JFXButton buttonType="RAISED" layoutX="25.0" layoutY="284.0" onAction="#cedits_OnAction" prefHeight="33.0" prefWidth="141.0" style="-fx-background-color: #29414c;" text="Credits" textFill="WHITE" />
+                  <JFXButton buttonType="RAISED" layoutX="25.0" layoutY="242.0" onAction="#aboutus_OnAction" prefHeight="33.0" prefWidth="141.0" style="-fx-background-color: #29414c;" text="About" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="rootPane" layoutX="204.0" prefHeight="331.0" prefWidth="396.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

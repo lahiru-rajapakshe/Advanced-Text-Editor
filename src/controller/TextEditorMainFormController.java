@@ -4,10 +4,16 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.*;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class TextEditorMainFormController {
@@ -196,5 +202,15 @@ txtArea.clear();
 
     public void menuSelectAll_OnAction(ActionEvent event) {
         txtArea.selectAll();
+    }
+
+    public void about_OnAction(ActionEvent event) throws IOException {
+        URL resource = getClass().getResource("/view/Aboutus.fxml");
+        Parent load = FXMLLoader.load(resource);
+        Scene scene = new Scene(load);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+
+        stage.show();
     }
 }
