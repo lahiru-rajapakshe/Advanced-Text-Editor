@@ -152,4 +152,8 @@ txtArea.clear();
         byte[] bytes = txtArea.getSelectedText().getBytes(StandardCharsets.UTF_8);
         Copy = new String(bytes);
     }
+
+    public void menuNew_OnAction(ActionEvent event) {
+        txtArea.clear();
+    }
 }
