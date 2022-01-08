@@ -8,13 +8,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -52,6 +52,10 @@ txtArea.clear();
         txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
             textChanged = true;
         });
+        String myStr = txtArea.getText();
+        String[] words = myStr.split("\\s+");
+        System.out.println("Word Count is: "+words.length);
+        lblWordCount.setText(String.valueOf(words.length));
     }
 
     public void btnSave2_OnAction(ActionEvent event) {
@@ -170,7 +174,7 @@ txtArea.clear();
             txtArea.selectRange(end, start);
 
         }
-       
+
     }
 
     public void btnDown_OnAction(ActionEvent event) {
@@ -287,4 +291,9 @@ txtArea.clear();
         textChanged = true;
         btnFind.fire();
     }
+    public void findCount() {
+      
+
+    }
+
 }
