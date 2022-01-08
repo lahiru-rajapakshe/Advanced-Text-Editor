@@ -57,9 +57,33 @@ txtArea.clear();
     }
 
     public void btnSave_OnAction(ActionEvent event) {
-      
+        if (file != null) {
+            if (file.exists()) writeToFile(file);
+        } else {
+            FileChooser chooser = new FileChooser();
+            chooser.setTitle("Save file");
+            chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text File", "*.txt")
+                    , new FileChooser.ExtensionFilter("All Files", "*.*"));
+            File file = chooser.showSaveDialog(null);
+            if (file != null) if (file.exists()) {
+                writeToFile(file);
+            } else {
+                try {
+                    file.createNewFile();
+                } catch (IOException ex) {
+                    return;
+                }
+                writeToFile(file);
+            }
+        }
     }
-
+    private void writeToFile(File file) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, false))) {
+            bw.write(txtArea.getText());
+        } catch (IOException ex) {
+            new Alert(Alert.AlertType.ERROR, ex.toString(), ButtonType.OK).show();
+        }
+    }
     public void btnOpen_OnAction(ActionEvent event) {
         FileChooser chooser=new FileChooser();
         chooser.setTitle("open a text file");
