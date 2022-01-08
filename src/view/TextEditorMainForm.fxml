@@ -25,7 +25,7 @@
                               <MenuItem mnemonicParsing="false" text="Open" />
                               <MenuItem mnemonicParsing="false" text="Save" />
                               <MenuItem mnemonicParsing="false" text="Print" />
-                              <MenuItem mnemonicParsing="false" text="exit" />
+                              <MenuItem fx:id="menuSave" mnemonicParsing="false" text="exit" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Edit">
@@ -45,27 +45,27 @@
                   </MenuBar>
                </children></AnchorPane>
             <AnchorPane layoutY="482.0" prefHeight="19.0" prefWidth="755.0" style="-fx-background-color: #1e6585;" />
-            <JFXButton buttonType="RAISED" layoutX="579.0" layoutY="409.0" prefHeight="47.0" prefWidth="170.0" style="-fx-background-color: #12a6ea;" text="Save" />
-            <JFXTextArea layoutX="7.0" layoutY="154.0" prefHeight="249.0" prefWidth="738.0" promptText="// your ideas here" />
-            <ToggleButton layoutX="24.0" layoutY="97.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="B" />
-            <ToggleButton layoutX="65.0" layoutY="97.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="I" />
-            <ToggleButton layoutX="108.0" layoutY="97.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="U" underline="true" />
-            <JFXButton buttonType="RAISED" layoutX="453.0" layoutY="97.0" style="-fx-background-color: #12a6ea;" text="New" />
-            <JFXButton buttonType="RAISED" layoutX="569.0" layoutY="97.0" prefHeight="26.0" prefWidth="50.0" style="-fx-background-color: #12a6ea;" text="Cut" />
-            <JFXButton buttonType="RAISED" layoutX="625.0" layoutY="97.0" style="-fx-background-color: #12a6ea;" text="Copy" />
-            <JFXButton buttonType="RAISED" layoutX="683.0" layoutY="97.0" style="-fx-background-color: #12a6ea;" text="Save" />
-            <JFXButton buttonType="RAISED" layoutX="508.0" layoutY="97.0" style="-fx-background-color: #12a6ea;" text="Open" />
+            <JFXButton fx:id="btnSave2" buttonType="RAISED" layoutX="579.0" layoutY="409.0" onAction="#btnSave2_OnAction" prefHeight="47.0" prefWidth="170.0" style="-fx-background-color: #12a6ea;" text="Save" />
+            <JFXTextArea fx:id="txtArea" layoutX="7.0" layoutY="154.0" prefHeight="249.0" prefWidth="738.0" promptText="// your ideas here" />
+            <ToggleButton fx:id="btnBold" layoutX="24.0" layoutY="97.0" mnemonicParsing="false" onAction="#btnBold_OnAction" prefHeight="26.0" prefWidth="34.0" text="B" />
+            <ToggleButton fx:id="btnItalic" layoutX="65.0" layoutY="97.0" mnemonicParsing="false" onAction="#btnItalic_OnAction" prefHeight="26.0" prefWidth="34.0" text="I" />
+            <ToggleButton fx:id="btnUndeline" layoutX="108.0" layoutY="97.0" mnemonicParsing="false" onAction="#btnUndeline_OnAction" prefHeight="26.0" prefWidth="34.0" text="U" underline="true" />
+            <JFXButton fx:id="btnNew" buttonType="RAISED" layoutX="453.0" layoutY="97.0" onAction="#btnNew_OnAction" style="-fx-background-color: #12a6ea;" text="New" />
+            <JFXButton fx:id="btnCut" buttonType="RAISED" layoutX="569.0" layoutY="97.0" onAction="#btnCut_OnAction" prefHeight="26.0" prefWidth="50.0" style="-fx-background-color: #12a6ea;" text="Cut" />
+            <JFXButton fx:id="btnCopy" buttonType="RAISED" layoutX="625.0" layoutY="97.0" onAction="#btnCopy_OnAction" style="-fx-background-color: #12a6ea;" text="Copy" />
+            <JFXButton fx:id="btnSaveMini" buttonType="RAISED" layoutX="683.0" layoutY="97.0" onAction="#btnSave_OnAction" style="-fx-background-color: #12a6ea;" text="Save" />
+            <JFXButton fx:id="btnOpen" buttonType="RAISED" layoutX="508.0" layoutY="97.0" onAction="#btnOpen_OnAction" style="-fx-background-color: #12a6ea;" text="Open" />
             <Separator layoutX="8.0" layoutY="144.0" prefHeight="3.0" prefWidth="723.0" />
-            <JFXButton buttonType="RAISED" layoutX="409.0" layoutY="97.0" style="-fx-background-color: #12a6ea;" text="UP" />
-            <JFXButton buttonType="RAISED" layoutX="348.0" layoutY="97.0" style="-fx-background-color: #12a6ea;" text="Down" />
-            <JFXTextField layoutX="153.0" layoutY="97.0" promptText="Seach" />
-            <JFXButton buttonType="RAISED" layoutX="347.0" layoutY="67.0" style="-fx-background-color: #12a6ea;" text="Find" />
+            <JFXButton fx:id="btnUp" buttonType="RAISED" layoutX="409.0" layoutY="97.0" onAction="#btnUp_OnAction" style="-fx-background-color: #12a6ea;" text="UP" />
+            <JFXButton fx:id="btnDown" buttonType="RAISED" layoutX="348.0" layoutY="97.0" onAction="#btnDown_OnAction" style="-fx-background-color: #12a6ea;" text="Down" />
+            <JFXTextField fx:id="txtSearch" layoutX="153.0" layoutY="97.0" onAction="#txtSearcth_OnAction" promptText="Seach" />
+            <JFXButton fx:id="btnFind" buttonType="RAISED" layoutX="347.0" layoutY="67.0" onAction="#btnFind_OnAction" style="-fx-background-color: #12a6ea;" text="Find" />
             <AnchorPane layoutY="463.0" prefHeight="19.0" prefWidth="755.0" style="-fx-background-color: #c1d8e3;">
                <children>
                   <Label layoutX="26.0" layoutY="2.0" text="find count : " />
-                  <Label layoutX="105.0" layoutY="2.0" text="Label" />
+                  <Label fx:id="lblFindCount" layoutX="105.0" layoutY="2.0" text="Label" />
                   <Label layoutX="531.0" layoutY="2.0" text="word count : " />
-                  <Label layoutX="617.0" layoutY="2.0" text="Label" />
+                  <Label fx:id="lblWordCount" layoutX="617.0" layoutY="2.0" text="Label" />
                </children>
             </AnchorPane>
          </children>
