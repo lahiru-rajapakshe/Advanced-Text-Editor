@@ -193,4 +193,8 @@ txtArea.clear();
             readFromFile(file);
         }
     }
+
+    public void menuSelectAll_OnAction(ActionEvent event) {
+        txtArea.selectAll();
+    }
 }

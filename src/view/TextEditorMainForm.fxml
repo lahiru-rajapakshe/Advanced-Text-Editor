@@ -33,7 +33,7 @@
                           <MenuItem mnemonicParsing="false" onAction="#menuCut_OnAction" text="Cut" />
                               <MenuItem mnemonicParsing="false" onAction="#menuCopy_OnAction" text="Copy" />
                               <MenuItem mnemonicParsing="false" text="Paste" />
-                              <MenuItem mnemonicParsing="false" text="Selet all" />
+                              <MenuItem mnemonicParsing="false" onAction="#menuSelectAll_OnAction" text="Selet all" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Help">
