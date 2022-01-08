@@ -146,4 +146,9 @@ txtArea.clear();
         txtArea.setText(txtArea.getText().replace(txtArea.getSelectedText(), ""));
         txtArea.positionCaret(caretPosition);
     }
+
+    public void menuCopy_OnAction(ActionEvent event) {
+        byte[] bytes = txtArea.getSelectedText().getBytes(StandardCharsets.UTF_8);
+        Copy = new String(bytes);
+    }
 }
