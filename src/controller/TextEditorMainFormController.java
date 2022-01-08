@@ -30,6 +30,7 @@ public class TextEditorMainFormController {
     public Label lblWordCount;
     public JFXButton btnSaveMini;
     private final File file = null;
+    public JFXButton btnPaste;
     private String cut;
     private String Copy;
     private final String ls = System.getProperty("line.separator");
@@ -130,5 +131,11 @@ txtArea.clear();
     }
 
     public void btnFind_OnAction(ActionEvent event) {
+    }
+
+    public void btnPaste_OnAction(ActionEvent event) {
+        int caretPosition = txtArea.getCaretPosition();
+        txtArea.insertText(caretPosition, Copy);
+        txtArea.insertText(caretPosition, cut);
     }
 }
