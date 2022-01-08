@@ -31,6 +31,7 @@ public class TextEditorMainFormController {
     public JFXButton btnSaveMini;
     private final File file = null;
     private String cut;
+    private String Copy;
     private final String ls = System.getProperty("line.separator");
 
     public void initialize(){
@@ -61,6 +62,8 @@ txtArea.clear();
     }
 
     public void btnCopy_OnAction(ActionEvent event) {
+        byte[] bytes = txtArea.getSelectedText().getBytes(StandardCharsets.UTF_8);
+        Copy = new String(bytes);
     }
 
     public void btnSave_OnAction(ActionEvent event) {
