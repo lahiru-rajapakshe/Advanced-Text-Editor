@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class TextEditorMainFormController {
     public MenuItem btnSave;
@@ -29,6 +30,7 @@ public class TextEditorMainFormController {
     public Label lblWordCount;
     public JFXButton btnSaveMini;
     private final File file = null;
+    private String cut;
     private final String ls = System.getProperty("line.separator");
 
     public void initialize(){
@@ -51,6 +53,11 @@ txtArea.clear();
     }
 
     public void btnCut_OnAction(ActionEvent event) {
+        byte[] bytes = txtArea.getSelectedText().getBytes(StandardCharsets.UTF_8);
+        cut = new String(bytes);
+        int caretPosition = txtArea.getCaretPosition();
+        txtArea.setText(txtArea.getText().replace(txtArea.getSelectedText(), ""));
+        txtArea.positionCaret(caretPosition);
     }
 
     public void btnCopy_OnAction(ActionEvent event) {
