@@ -62,29 +62,33 @@ txtArea.clear();
     }
 
     public void btnSave2_OnAction(ActionEvent event) {
-      try{
-          if (file != null) {
-              if (file.exists()) writeToFile(file);
-          } else {
-              FileChooser chooser = new FileChooser();
-              chooser.setTitle("Save file");
-              chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text File", "*.txt")
-                      , new FileChooser.ExtensionFilter("All Files", "*.*"));
-              File file = chooser.showSaveDialog(null);
-              if (file != null) if (file.exists()) {
-                  writeToFile(file);
-              } else {
-                  try {
-                      file.createNewFile();
-                  } catch (IOException ex) {
-                      return;
-                  }
-                  writeToFile(file);
-              }
-          }
-      }catch(Exception e){
-          e.printStackTrace();
-      }
+        if(txtArea.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR,"Empty values cannot save ! please enter something",ButtonType.OK).show();
+        }else{
+            try{
+                if (file != null) {
+                    if (file.exists()) writeToFile(file);
+                } else {
+                    FileChooser chooser = new FileChooser();
+                    chooser.setTitle("Save file");
+                    chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text File", "*.txt")
+                            , new FileChooser.ExtensionFilter("All Files", "*.*"));
+                    File file = chooser.showSaveDialog(null);
+                    if (file != null) if (file.exists()) {
+                        writeToFile(file);
+                    } else {
+                        try {
+                            file.createNewFile();
+                        } catch (IOException ex) {
+                            return;
+                        }
+                        writeToFile(file);
+                    }
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
     public void btnBold_OnAction(ActionEvent event) {
@@ -101,51 +105,66 @@ txtArea.clear();
     }
 
     public void btnCut_OnAction(ActionEvent event) {
-       try{
-           byte[] bytes = txtArea.getSelectedText().getBytes(StandardCharsets.UTF_8);
-           cut = new String(bytes);
-           int caretPosition = txtArea.getCaretPosition();
-           txtArea.setText(txtArea.getText().replace(txtArea.getSelectedText(), ""));
-           txtArea.positionCaret(caretPosition);
-       }catch(Exception e){
-           e.printStackTrace();
-       }
+        if(txtArea.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR,"Thee is no any text here to cut, Enter something",ButtonType.OK).show();
+        }else{
+            try{
+                byte[] bytes = txtArea.getSelectedText().getBytes(StandardCharsets.UTF_8);
+                cut = new String(bytes);
+                int caretPosition = txtArea.getCaretPosition();
+                txtArea.setText(txtArea.getText().replace(txtArea.getSelectedText(), ""));
+                txtArea.positionCaret(caretPosition);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+
     }
 
     public void btnCopy_OnAction(ActionEvent event) {
-       try{
-           byte[] bytes = txtArea.getSelectedText().getBytes(StandardCharsets.UTF_8);
-           Copy = new String(bytes);
-       }catch(Exception e){
-           e.printStackTrace();
-       }
+
+        if(txtArea.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR,"Thee is no any text here to cut, Enter something",ButtonType.OK).show();
+        }else{
+            try{
+                byte[] bytes = txtArea.getSelectedText().getBytes(StandardCharsets.UTF_8);
+                Copy = new String(bytes);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+
+        }
 
     }
 
     public void btnSave_OnAction(ActionEvent event) {
-      try{
-          if (file != null) {
-              if (file.exists()) writeToFile(file);
-          } else {
-              FileChooser chooser = new FileChooser();
-              chooser.setTitle("Save file");
-              chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text File", "*.txt")
-                      , new FileChooser.ExtensionFilter("All Files", "*.*"));
-              File file = chooser.showSaveDialog(null);
-              if (file != null) if (file.exists()) {
-                  writeToFile(file);
-              } else {
-                  try {
-                      file.createNewFile();
-                  } catch (IOException ex) {
-                      return;
-                  }
-                  writeToFile(file);
-              }
-          }
-      }catch(Exception e){
-          e.printStackTrace();
-      }
+     if(txtArea.getText().isEmpty()){
+         new Alert(Alert.AlertType.ERROR,"Empty values cannot save ! please enter something",ButtonType.OK).show();
+     }else{
+         try{
+             if (file != null) {
+                 if (file.exists()) writeToFile(file);
+             } else {
+                 FileChooser chooser = new FileChooser();
+                 chooser.setTitle("Save file");
+                 chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text File", "*.txt")
+                         , new FileChooser.ExtensionFilter("All Files", "*.*"));
+                 File file = chooser.showSaveDialog(null);
+                 if (file != null) if (file.exists()) {
+                     writeToFile(file);
+                 } else {
+                     try {
+                         file.createNewFile();
+                     } catch (IOException ex) {
+                         return;
+                     }
+                     writeToFile(file);
+                 }
+             }
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+     }
     }
     private void writeToFile(File file) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, false))) {
@@ -190,38 +209,49 @@ txtArea.clear();
     }
 
     public void btnUp_OnAction(ActionEvent event) {
-       try{
-           txtSearch.deselect();
-           if (textChanged) {
-               matcher = Pattern.compile(txtSearch.getText(), !btnCaseSensitive.isSelected() ? Pattern.CASE_INSENSITIVE : 0).matcher(txtArea.getText());
-               textChanged = false;
-           }
-           if (matcher.find()) {
-               int start = matcher.start();
-               int end = matcher.end();
-               lastSearchIndex = end;
-               System.out.println(end);
-               txtArea.selectRange(end, start);
+        if(txtArea.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR,"There is no any text here, Enter something",ButtonType.OK).show();
+        }else{
+            try{
+                txtSearch.deselect();
+                if (textChanged) {
+                    matcher = Pattern.compile(txtSearch.getText(), !btnCaseSensitive.isSelected() ? Pattern.CASE_INSENSITIVE : 0).matcher(txtArea.getText());
+                    textChanged = false;
+                }
+                if (matcher.find()) {
+                    int start = matcher.start();
+                    int end = matcher.end();
+                    lastSearchIndex = end;
+                    System.out.println(end);
+                    txtArea.selectRange(end, start);
 
-           }
-       }catch(Exception e){
-           e.printStackTrace();
-       }
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+
 
     }
 
     public void btnDown_OnAction(ActionEvent event) {
-        txtSearch.deselect();
-        if (textChanged) {
-            matcher = Pattern.compile(txtSearch.getText(), !btnCaseSensitive.isSelected() ? Pattern.CASE_INSENSITIVE : 0).matcher(txtArea.getText());
-            textChanged = false;
-        }
-        if (matcher.find()) {
-            int start = matcher.start();
-            int end = matcher.end();
-            lastSearchIndex = end;
-            System.out.println(start);
-            txtArea.selectRange(start, end);
+
+        if(txtArea.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR,"There is no any text here, Enter something",ButtonType.OK).show();
+        }else{
+            txtSearch.deselect();
+            if (textChanged) {
+                matcher = Pattern.compile(txtSearch.getText(), !btnCaseSensitive.isSelected() ? Pattern.CASE_INSENSITIVE : 0).matcher(txtArea.getText());
+                textChanged = false;
+            }
+            if (matcher.find()) {
+                int start = matcher.start();
+                int end = matcher.end();
+                lastSearchIndex = end;
+                System.out.println(start);
+                txtArea.selectRange(start, end);
+            }
+
         }
 
     }
@@ -231,55 +261,65 @@ txtArea.clear();
     }
 
     public void btnFind_OnAction(ActionEvent event) {
-       try{
-           txtSearch.deselect();
-           if (textChanged) {
-               matcher = Pattern.compile(txtSearch.getText(), !btnCaseSensitive.isSelected() ? Pattern.CASE_INSENSITIVE : 0).matcher(txtArea.getText());
-               textChanged = false;
-           }
-           if (matcher.find()) {
-               int start = matcher.start();
-               int end = matcher.end();
-               lastSearchIndex = end;
-               System.out.println(start);
-               txtArea.selectRange(start, end);
+        if(txtArea.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR,"There is no any text here, Enter something",ButtonType.OK).show();
+        }else{
+            try{
+                txtSearch.deselect();
+                if (textChanged) {
+                    matcher = Pattern.compile(txtSearch.getText(), !btnCaseSensitive.isSelected() ? Pattern.CASE_INSENSITIVE : 0).matcher(txtArea.getText());
+                    textChanged = false;
+                }
+                if (matcher.find()) {
+                    int start = matcher.start();
+                    int end = matcher.end();
+                    lastSearchIndex = end;
+                    System.out.println(start);
+                    txtArea.selectRange(start, end);
 
 
-               String string = txtArea.getText();
-               int count;
+                    String string = txtArea.getText();
+                    int count;
 
 
-               string = string.toLowerCase();
+                    string = string.toLowerCase();
 
 
-               String words[] = string.split(" ");
+                    String words[] = string.split(" ");
 
-               System.out.println("Duplicate words in a given string : ");
-               for(int i = 0; i < words.length; i++) {
-                   count = 1;
-                   for(int j = i+1; j < words.length; j++) {
-                       if(words[i].equals(words[j])) {
-                           count++;
+                    System.out.println("Duplicate words in a given string : ");
+                    for(int i = 0; i < words.length; i++) {
+                        count = 1;
+                        for(int j = i+1; j < words.length; j++) {
+                            if(words[i].equals(words[j])) {
+                                count++;
 
-                           words[j] = "0";
-                       }
-                   }
+                                words[j] = "0";
+                            }
+                        }
 
 
-                   if(count > 1 && words[i] != "0") {
-                       System.out.println(words[i] + "" + count);
-                       lblFindCount.setText(String.valueOf(count));
-                   }
-               }
-           }
+                        if(count > 1 && words[i] != "0") {
+                            System.out.println(words[i] + "" + count);
+                            lblFindCount.setText(String.valueOf(count));
+                        }
+                    }
+                }
 
-       }catch(Exception e){
-           e.printStackTrace();
-       }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+
+
+
+
+        }
+
 
     }
 
     public void btnPaste_OnAction(ActionEvent event) {
+
        try{
            int caretPosition = txtArea.getCaretPosition();
            txtArea.insertText(caretPosition, Copy);
@@ -290,25 +330,36 @@ txtArea.clear();
     }
 
     public void menuCut_OnAction(ActionEvent event) {
-        try{
-            byte[] bytes = txtArea.getSelectedText().getBytes(StandardCharsets.UTF_8);
-            cut = new String(bytes);
-            int caretPosition = txtArea.getCaretPosition();
-            txtArea.setText(txtArea.getText().replace(txtArea.getSelectedText(), ""));
-            txtArea.positionCaret(caretPosition);
-        }catch (Exception e){
-            e.printStackTrace();
+        if(txtArea.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR,"There is no any text here, Enter something",ButtonType.OK).show();
+        }else{
+            try{
+                byte[] bytes = txtArea.getSelectedText().getBytes(StandardCharsets.UTF_8);
+                cut = new String(bytes);
+                int caretPosition = txtArea.getCaretPosition();
+                txtArea.setText(txtArea.getText().replace(txtArea.getSelectedText(), ""));
+                txtArea.positionCaret(caretPosition);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
+
     }
 
     public void menuCopy_OnAction(ActionEvent event) {
-       try{
-           byte[] bytes = txtArea.getSelectedText().getBytes(StandardCharsets.UTF_8);
-           Copy = new String(bytes);
-       }catch (Exception e)
-       {
-           e.printStackTrace();
-       }
+        if(txtArea.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR,"There is no any text here, Enter something",ButtonType.OK).show();
+        }else{
+
+            try{
+                byte[] bytes = txtArea.getSelectedText().getBytes(StandardCharsets.UTF_8);
+                Copy = new String(bytes);
+            }catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     public void menuNew_OnAction(ActionEvent event) {
@@ -320,44 +371,56 @@ txtArea.clear();
     }
 
     public void menuSave_OnAction(ActionEvent event) {
-      try{
-          if (file != null) {
-              if (file.exists()) writeToFile(file);
-          } else {
-              FileChooser chooser = new FileChooser();
-              chooser.setTitle("Save file");
-              chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text File", "*.txt")
-                      , new FileChooser.ExtensionFilter("All Files", "*.*"));
-              File file = chooser.showSaveDialog(null);
-              if (file != null) if (file.exists()) {
-                  writeToFile(file);
-              } else {
-                  try {
-                      file.createNewFile();
-                  } catch (IOException ex) {
-                      return;
-                  }
-                  writeToFile(file);
-              }
-          }
-      }catch (Exception e){
-          e.printStackTrace();
-      }
+        if(txtArea.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR,"There is no any text here, Enter something",ButtonType.OK).show();
+        }else
+        {
+            try{
+                if (file != null) {
+                    if (file.exists()) writeToFile(file);
+                } else {
+                    FileChooser chooser = new FileChooser();
+                    chooser.setTitle("Save file");
+                    chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text File", "*.txt")
+                            , new FileChooser.ExtensionFilter("All Files", "*.*"));
+                    File file = chooser.showSaveDialog(null);
+                    if (file != null) if (file.exists()) {
+                        writeToFile(file);
+                    } else {
+                        try {
+                            file.createNewFile();
+                        } catch (IOException ex) {
+                            return;
+                        }
+                        writeToFile(file);
+                    }
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
     }
 
     public void menuOpen_OnAction(ActionEvent event) {
-       try{
-           FileChooser chooser=new FileChooser();
-           chooser.setTitle("open a text file");
-           chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text file","*.txt"), new FileChooser.ExtensionFilter("All files","*.*"));
-           File file= chooser.showOpenDialog(null);
-           if (file!=null)
-           {
-               readFromFile(file);
-           }
-       }catch(Exception e){
-           e.printStackTrace();
-       }
+        if(txtArea.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR,"There is no any text here, Enter something",ButtonType.OK).show();
+        }else
+        {
+            try{
+                FileChooser chooser=new FileChooser();
+                chooser.setTitle("open a text file");
+                chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text file","*.txt"), new FileChooser.ExtensionFilter("All files","*.*"));
+                File file= chooser.showOpenDialog(null);
+                if (file!=null)
+                {
+                    readFromFile(file);
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+
     }
 
     public void menuSelectAll_OnAction(ActionEvent event) {
@@ -392,25 +455,32 @@ txtArea.clear();
     }
 
     public void btnReplace_OnAction(ActionEvent event) {
-        try{
-            txtSearch.deselect();
-            if (textChanged) {
-                matcher = Pattern.compile(txtSearch.getText(), !btnCaseSensitive.isSelected() ? Pattern.CASE_INSENSITIVE : 0).matcher(txtArea.getText());
-                textChanged = false;
+        if(txtArea.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR,"There is no any text here, Enter something",ButtonType.OK).show();
+        }else
+
+        {
+            try{
+                txtSearch.deselect();
+                if (textChanged) {
+                    matcher = Pattern.compile(txtSearch.getText(), !btnCaseSensitive.isSelected() ? Pattern.CASE_INSENSITIVE : 0).matcher(txtArea.getText());
+                    textChanged = false;
+                }
+                if (matcher.find()) {
+                    int start = matcher.start();
+                    int end = matcher.end();
+                    lastSearchIndex = end;
+                    System.out.println(start);
+                    txtArea.selectRange(start, end);}
+
+
+                String text1 = txtArea.getText();
+                String text2 = text1.toString().replace("-Click 2U - Files", "");
+
+            }catch (Exception e){
+                e.printStackTrace();
             }
-            if (matcher.find()) {
-                int start = matcher.start();
-                int end = matcher.end();
-                lastSearchIndex = end;
-                System.out.println(start);
-                txtArea.selectRange(start, end);}
-
-
-            String text1 = txtArea.getText();
-            String text2 = text1.toString().replace("-Click 2U - Files", "");
-
-        }catch (Exception e){
-            e.printStackTrace();
         }
-    }
+        }
+
 }
