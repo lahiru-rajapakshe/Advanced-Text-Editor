@@ -40,6 +40,7 @@ public class TextEditorMainFormController {
     private final File file = null;
     public JFXButton btnPaste;
     public ToggleButton btnCaseSensitive;
+    public TextField txtWordC;
     private String cut;
     private String Copy;
     private boolean textChanged = false;
@@ -56,6 +57,8 @@ txtArea.clear();
         String[] words = myStr.split("\\s+");
         System.out.println("Word Count is: "+words.length);
         lblWordCount.setText(String.valueOf(words.length));
+
+
     }
 
     public void btnSave2_OnAction(ActionEvent event) {
@@ -208,6 +211,34 @@ txtArea.clear();
             lastSearchIndex = end;
             System.out.println(start);                    //to find
             txtArea.selectRange(start, end);
+
+
+            String string = txtArea.getText();
+            int count;
+
+            //Converts the string into lowercase
+            string = string.toLowerCase();
+
+            //Split the string into words using built-in function
+            String words[] = string.split(" ");
+
+            System.out.println("Duplicate words in a given string : ");
+            for(int i = 0; i < words.length; i++) {
+                count = 1;
+                for(int j = i+1; j < words.length; j++) {
+                    if(words[i].equals(words[j])) {
+                        count++;
+                        //Set words[j] to 0 to avoid printing visited word
+                        words[j] = "0";
+                    }
+                }
+
+                //Displays the duplicate word if count is greater than 1
+                if(count > 1 && words[i] != "0") {
+                    System.out.println(words[i] + "" + count);
+                    lblFindCount.setText(String.valueOf(count));
+                }
+            }
         }
 
 
@@ -292,7 +323,7 @@ txtArea.clear();
         btnFind.fire();
     }
     public void findCount() {
-      
+
 
     }
 

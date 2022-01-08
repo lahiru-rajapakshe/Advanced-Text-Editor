@@ -8,6 +8,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -70,6 +71,7 @@
             </AnchorPane>
             <JFXButton fx:id="btnPaste" buttonType="RAISED" layoutX="404.0" layoutY="67.0" onAction="#btnPaste_OnAction" style="-fx-background-color: #12a6ea;" text="Paste" />
             <ToggleButton fx:id="btnCaseSensitive" layoutX="470.0" layoutY="67.0" mnemonicParsing="false" onAction="#btnCaseSensitive_OnAction" text="case sen" />
+            <TextField fx:id="txtWordC" layoutX="342.0" layoutY="420.0" />
          </children>
       </AnchorPane>
    </children>
