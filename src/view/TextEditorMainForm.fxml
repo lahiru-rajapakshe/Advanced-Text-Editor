@@ -69,6 +69,7 @@
                </children>
             </AnchorPane>
             <JFXButton fx:id="btnPaste" buttonType="RAISED" layoutX="404.0" layoutY="67.0" onAction="#btnPaste_OnAction" style="-fx-background-color: #12a6ea;" text="Paste" />
+            <ToggleButton fx:id="btnCaseSensitive" layoutX="470.0" layoutY="67.0" mnemonicParsing="false" onAction="#btnCaseSensitive_OnAction" text="case sen" />
          </children>
       </AnchorPane>
    </children>

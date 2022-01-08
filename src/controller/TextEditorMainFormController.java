@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TextEditorMainFormController {
     public MenuItem btnSave;
@@ -37,15 +39,41 @@ public class TextEditorMainFormController {
     public JFXButton btnSaveMini;
     private final File file = null;
     public JFXButton btnPaste;
+    public ToggleButton btnCaseSensitive;
     private String cut;
     private String Copy;
+    private boolean textChanged = false;
+    private Matcher matcher;
+    private int lastSearchIndex = 0;
     private final String ls = System.getProperty("line.separator");
 
     public void initialize(){
 txtArea.clear();
+        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            textChanged = true;
+        });
     }
 
     public void btnSave2_OnAction(ActionEvent event) {
+        if (file != null) {
+            if (file.exists()) writeToFile(file);
+        } else {
+            FileChooser chooser = new FileChooser();
+            chooser.setTitle("Save file");
+            chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text File", "*.txt")
+                    , new FileChooser.ExtensionFilter("All Files", "*.*"));
+            File file = chooser.showSaveDialog(null);
+            if (file != null) if (file.exists()) {
+                writeToFile(file);
+            } else {
+                try {
+                    file.createNewFile();
+                } catch (IOException ex) {
+                    return;
+                }
+                writeToFile(file);
+            }
+        }
     }
 
     public void btnBold_OnAction(ActionEvent event) {
@@ -132,12 +160,39 @@ txtArea.clear();
     }
 
     public void btnDown_OnAction(ActionEvent event) {
+        txtSearch.deselect();
+        if (textChanged) {
+            matcher = Pattern.compile(txtSearch.getText(), !btnCaseSensitive.isSelected() ? Pattern.CASE_INSENSITIVE : 0).matcher(txtArea.getText());
+            textChanged = false;
+        }
+        if (matcher.find()) {   //stroing last index
+            int start = matcher.start();   //staritng index of the word
+            int end = matcher.end();
+            lastSearchIndex = end;
+            System.out.println(start);                    //to find
+            txtArea.selectRange(start, end);
+        }
+
     }
 
     public void txtSearcth_OnAction(ActionEvent event) {
     }
 
     public void btnFind_OnAction(ActionEvent event) {
+        txtSearch.deselect();
+        if (textChanged) {
+            matcher = Pattern.compile(txtSearch.getText(), !btnCaseSensitive.isSelected() ? Pattern.CASE_INSENSITIVE : 0).matcher(txtArea.getText());
+            textChanged = false;
+        }
+        if (matcher.find()) {   //stroing last index
+            int start = matcher.start();   //staritng index of the word
+            int end = matcher.end();
+            lastSearchIndex = end;
+            System.out.println(start);                    //to find
+            txtArea.selectRange(start, end);
+        }
+
+
     }
 
     public void btnPaste_OnAction(ActionEvent event) {
@@ -212,5 +267,10 @@ txtArea.clear();
         stage.setScene(scene);
 
         stage.show();
+    }
+
+    public void btnCaseSensitive_OnAction(ActionEvent event) {
+        textChanged = true;
+        btnFind.fire();
     }
 }
