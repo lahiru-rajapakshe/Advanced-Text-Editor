@@ -156,4 +156,41 @@ txtArea.clear();
     public void menuNew_OnAction(ActionEvent event) {
         txtArea.clear();
     }
+
+    public void menuExit_OnAction(ActionEvent event) {
+        System.exit(0);
+    }
+
+    public void menuSave_OnAction(ActionEvent event) {
+        if (file != null) {
+            if (file.exists()) writeToFile(file);
+        } else {
+            FileChooser chooser = new FileChooser();
+            chooser.setTitle("Save file");
+            chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text File", "*.txt")
+                    , new FileChooser.ExtensionFilter("All Files", "*.*"));
+            File file = chooser.showSaveDialog(null);
+            if (file != null) if (file.exists()) {
+                writeToFile(file);
+            } else {
+                try {
+                    file.createNewFile();
+                } catch (IOException ex) {
+                    return;
+                }
+                writeToFile(file);
+            }
+        }
+    }
+
+    public void menuOpen_OnAction(ActionEvent event) {
+        FileChooser chooser=new FileChooser();
+        chooser.setTitle("open a text file");
+        chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text file","*.txt"), new FileChooser.ExtensionFilter("All files","*.*"));
+        File file= chooser.showOpenDialog(null);
+        if (file!=null)
+        {
+            readFromFile(file);
+        }
+    }
 }
