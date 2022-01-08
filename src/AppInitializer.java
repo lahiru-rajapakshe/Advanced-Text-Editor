@@ -19,5 +19,7 @@ public class AppInitializer extends Application {
         primaryStage.setScene(mainScene);
         primaryStage.setTitle("Advanced Text Editor");
         primaryStage.show();
+        primaryStage.setMinWidth(800);
+        primaryStage.setMinHeight(530);
     }
 }
