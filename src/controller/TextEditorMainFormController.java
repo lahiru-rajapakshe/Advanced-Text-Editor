@@ -157,6 +157,20 @@ txtArea.clear();
     }
 
     public void btnUp_OnAction(ActionEvent event) {
+        txtSearch.deselect();
+        if (textChanged) {
+            matcher = Pattern.compile(txtSearch.getText(), !btnCaseSensitive.isSelected() ? Pattern.CASE_INSENSITIVE : 0).matcher(txtArea.getText());
+            textChanged = false;
+        }
+        if (matcher.find()) {   //stroing last index
+            int start = matcher.start();   //staritng index of the word
+            int end = matcher.end();
+            lastSearchIndex = end;
+            System.out.println(end);                    //to find
+            txtArea.selectRange(end, start);
+
+        }
+       
     }
 
     public void btnDown_OnAction(ActionEvent event) {
