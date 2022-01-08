@@ -52,6 +52,7 @@ txtArea.clear();
     }
 
     public void btnNew_OnAction(ActionEvent event) {
+        txtArea.clear();
     }
 
     public void btnCut_OnAction(ActionEvent event) {
