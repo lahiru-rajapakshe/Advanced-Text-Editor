@@ -30,6 +30,10 @@ This repository is where i develop the Advenced text editor as a inidividual pro
     14.About us 
 These are the All features avalible in the project.
 
+#How to use this repository?
+    1.First clone the repository
+    2.Once cloned, open the repository from the IntelliJ IDEA
+    3.Build and Run!
 
 ## Feedback
     Ask a question on Stackoverflow
