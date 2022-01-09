@@ -53,7 +53,7 @@ See also my linked in profile.
 Copyright © Lahiru Rajapakshe. All rights reserved.
 
 [MIT](https://github.com/Lahiru720/Advanced-Text-Editor/blob/main/LICENSE)
-
+Licensed under the [MIT](https://github.com/Lahiru720/Advanced-Text-Editor/blob/main/LICENSE) license.
 
 ## 🔗 Links
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://medium.com/@lahirurajapakshe.stack)
