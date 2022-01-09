@@ -28,7 +28,7 @@ This repository is where i develop the Advenced text editor as a inidividual pro
     12.Counting search words
     13.whole text words count
     14.About us 
-These are the All features avalible in the project.
+These are the All features avalible in the project.Also the text editor is full resposive. every buttons, and every fileds in here, they all are fully responsive.
 
 
 ## Feedback
