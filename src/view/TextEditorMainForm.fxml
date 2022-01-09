@@ -229,6 +229,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
             <Separator layoutX="4.0" layoutY="132.0" prefHeight="3.0" prefWidth="738.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="0.0" />
+            <ToggleButton fx:id="tglRegEx" layoutX="358.0" layoutY="67.0" mnemonicParsing="false" onAction="#tglRegEx_OnAction" text="RegEx" />
+
          </children>
       </AnchorPane>
    </children>

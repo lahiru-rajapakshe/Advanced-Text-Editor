@@ -11,10 +11,15 @@
    <children>
       <AnchorPane prefHeight="331.0" prefWidth="600.0">
          <children>
-            <AnchorPane prefHeight="331.0" prefWidth="204.0" style="-fx-background-color: #27a6e1;">
+            <AnchorPane prefHeight="331.0" prefWidth="204.0" style="-fx-background-color: #6076F2;">
                <children>
                   <JFXButton buttonType="RAISED" layoutX="25.0" layoutY="284.0" onAction="#cedits_OnAction" prefHeight="33.0" prefWidth="141.0" style="-fx-background-color: #29414c;" text="Credits" textFill="WHITE" />
                   <JFXButton buttonType="RAISED" layoutX="25.0" layoutY="242.0" onAction="#aboutus_OnAction" prefHeight="33.0" prefWidth="141.0" style="-fx-background-color: #29414c;" text="About" textFill="WHITE" />
+                  <ImageView fitHeight="150.0" fitWidth="204.0" layoutX="27.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/w.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="rootPane" layoutX="204.0" prefHeight="331.0" prefWidth="396.0">
@@ -30,12 +35,14 @@
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <Label layoutX="146.0" layoutY="283.0" text="Version 1.0.0" />
+                  <Label layoutX="155.0" layoutY="309.0" text="Version 1.0.0" />
                   <Label layoutX="113.0" layoutY="14.0" text="Text Editor">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Label>
+                  <Label layoutX="137.0" layoutY="261.0" text="All Right Recieved." />
+                  <Label layoutX="97.0" layoutY="277.0" text="Licened under The MIT license." textFill="#3869f2" />
                </children></AnchorPane>
          </children>
       </AnchorPane>
