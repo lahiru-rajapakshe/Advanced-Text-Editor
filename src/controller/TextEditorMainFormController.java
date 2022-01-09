@@ -326,14 +326,19 @@ public class TextEditorMainFormController {
     }
 
     public void btnPaste_OnAction(ActionEvent event) {
+        if (txtArea.getText().isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "There is no any text here, Enter something", ButtonType.OK).show();
+        } else {
+            try {
+                int caretPosition = txtArea.getCaretPosition();
+                txtArea.insertText(caretPosition, Copy);
+                txtArea.insertText(caretPosition, cut);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-        try {
-            int caretPosition = txtArea.getCaretPosition();
-            txtArea.insertText(caretPosition, Copy);
-            txtArea.insertText(caretPosition, cut);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+
     }
 
     public void menuCut_OnAction(ActionEvent event) {
@@ -505,4 +510,6 @@ public class TextEditorMainFormController {
         textChanged = true;
         btnFind.fire();
     }
+
+
 }

@@ -18,11 +18,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TextEditorMainFormController">
    <children>
-      <AnchorPane prefHeight="501.0" prefWidth="631.0" style="-fx-background-color: white;" styleClass="primary-color" stylesheets="@../styles/lightMode.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane prefHeight="501.0" prefWidth="672.0" style="-fx-background-color: white;" styleClass="primary-color" stylesheets="@../styles/lightMode.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <AnchorPane prefHeight="67.0" prefWidth="755.0" style="-fx-background-color: #1e6585;" styleClass="secondary-color" AnchorPane.bottomAnchor="434.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <MenuBar layoutY="38.0" style="-fx-background-color: #1e6585;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0">
+                  <MenuBar layoutX="70.0" layoutY="42.0" style="-fx-background-color: #1e6585;" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="375.0">
                     <menus>
                       <Menu mnemonicParsing="false" text="File">
                         <items>
@@ -48,10 +48,15 @@
                       </Menu>
                     </menus>
                   </MenuBar>
+                  <ImageView fitHeight="82.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/w.png" />
+                     </image>
+                  </ImageView>
                </children></AnchorPane>
             <AnchorPane layoutY="482.0" prefHeight="19.0" prefWidth="755.0" style="-fx-background-color: #1e6585;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
             <JFXButton fx:id="btnSave2" buttonType="RAISED" layoutX="579.0" layoutY="409.0" onAction="#btnSave2_OnAction" prefHeight="47.0" prefWidth="170.0" style="-fx-background-color: #12a6ea;" text="Save" AnchorPane.rightAnchor="6.0" />
-            <JFXTextArea fx:id="txtArea" labelFloat="true" layoutX="9.0" layoutY="154.0" prefHeight="249.0" prefWidth="581.0" AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.0" />
+            <JFXTextArea fx:id="txtArea" labelFloat="true" layoutX="9.0" layoutY="154.0" prefHeight="249.0" prefWidth="580.0" AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="11.0" />
             <ToggleButton fx:id="btnBold" layoutX="14.0" layoutY="101.0" mnemonicParsing="false" onAction="#btnBold_OnAction" prefHeight="26.0" prefWidth="34.0" text="B" AnchorPane.leftAnchor="14.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -229,7 +234,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
             <Separator layoutX="4.0" layoutY="132.0" prefHeight="3.0" prefWidth="738.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="0.0" />
-            <ToggleButton fx:id="tglRegEx" layoutX="358.0" layoutY="67.0" mnemonicParsing="false" onAction="#tglRegEx_OnAction" text="RegEx" />
+            <ToggleButton fx:id="tglRegEx" layoutX="9.0" layoutY="420.0" mnemonicParsing="false" onAction="#tglRegEx_OnAction" prefHeight="32.0" prefWidth="117.0" style="-fx-background-color: #7af5bd;" text="RegEx Checker" />
 
          </children>
       </AnchorPane>
