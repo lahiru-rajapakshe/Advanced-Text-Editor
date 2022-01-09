@@ -8,7 +8,8 @@ This repository is where i develop the Advenced text editor as a inidividual pro
 
 ## Screenshots
 
-![Screenshot from 2022-01-09 09-07-32](https://user-images.githubusercontent.com/66423576/148668293-a79b963e-4228-48df-829d-e46150905b6e.png)
+![Screenshot from 2022-01-09 21-11-25](https://user-images.githubusercontent.com/66423576/148690748-05402d1e-c004-4076-af16-746eb3c29177.png)
+
 
 
 
