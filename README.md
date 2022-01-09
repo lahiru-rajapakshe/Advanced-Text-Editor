@@ -8,7 +8,7 @@ This repository is where i develop the Advenced text editor as a inidividual pro
 
 ## Screenshots
 
-![App Screenshot](https://drive.google.com/file/d/1d4gZQOLplij_KxxU_wKkVExcj9zJn-wa/view?usp=sharing)
+![Text editor](https://drive.google.com/file/d/1d4gZQOLplij_KxxU_wKkVExcj9zJn-wa/view?usp=sharing)
 
 
 # features
