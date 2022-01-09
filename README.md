@@ -47,8 +47,6 @@ See also my linked in profile.
     Human Resources management System | c#
     Robot Controlling in Remote | Arduino |java
 
-[Awesome README](https://github.com/matiassingers/awesome-readme)
-
 
 ## License
 Copyright © Lahiru Rajapakshe. All rights reserved.
