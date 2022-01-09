@@ -52,7 +52,6 @@ See also my linked in profile.
 ## License
 Copyright © Lahiru Rajapakshe. All rights reserved.
 
-[MIT](https://github.com/Lahiru720/Advanced-Text-Editor/blob/main/LICENSE)
 Licensed under the [MIT](https://github.com/Lahiru720/Advanced-Text-Editor/blob/main/LICENSE) license.
 
 ## 🔗 Links
