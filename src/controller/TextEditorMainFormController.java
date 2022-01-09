@@ -48,6 +48,9 @@ public class TextEditorMainFormController {
     private int lastSearchIndex = 0;
     private final String ls = System.getProperty("line.separator");
 
+    private final static int BOLD = 1;
+    private final static int ITALIC = 2;
+    private final static int UNDERLINE = 4;
     public void initialize(){
 txtArea.clear();
         txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -57,6 +60,9 @@ txtArea.clear();
         String[] words = myStr.split("\\s+");
         System.out.println("Word Count is: "+words.length);
         lblWordCount.setText(String.valueOf(words.length));
+
+
+
 
 
     }
@@ -92,12 +98,15 @@ txtArea.clear();
     }
 
     public void btnBold_OnAction(ActionEvent event) {
+applyFormatting();
     }
 
     public void btnItalic_OnAction(ActionEvent event) {
+        applyFormatting();
     }
 
     public void btnUndeline_OnAction(ActionEvent event) {
+        applyFormatting();
     }
 
     public void btnNew_OnAction(ActionEvent event) {
@@ -434,7 +443,7 @@ txtArea.clear();
             Scene scene = new Scene(load);
             Stage stage = new Stage();
             stage.setScene(scene);
-
+stage.setTitle("About us");
             stage.show();
         }catch (Exception e){
             e.printStackTrace();
@@ -482,5 +491,19 @@ txtArea.clear();
             }
         }
         }
+    private void applyFormatting() {
+
+        int flags = 0;
+        if (btnBold.isSelected()) flags = flags | BOLD;
+        if (btnItalic.isSelected()) flags = flags | ITALIC;
+        if (btnUndeline.isSelected()) flags = flags | UNDERLINE;
+        applyLogic3(flags);
+    }
+    private void applyLogic3(int formattingOptions) {
+        txtArea.getStyleClass().clear();
+        if ((formattingOptions & BOLD) == BOLD) txtArea.getStyleClass().add("bold");
+        if ((formattingOptions & ITALIC) == ITALIC) txtArea.getStyleClass().add("italic");
+        if ((formattingOptions & UNDERLINE) == UNDERLINE) txtArea.getStyleClass().add("underline");
+    }
 
 }

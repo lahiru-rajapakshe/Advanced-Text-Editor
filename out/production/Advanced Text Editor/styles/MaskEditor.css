@@ -1,0 +1,15 @@
+#txtArea{
+    -fx-background-color: #ffc300;
+}
+
+.bold{
+    -fx-font-weight: bold;
+}
+
+.italic{
+    -fx-font-style: italic;
+}
+
+.underline{
+    -fx-underline: true;
+}
