@@ -13,7 +13,7 @@ This repository is where i develop the Advenced text editor as a inidividual pro
 
 
 
-# features
+# Features
 
     1.save text
     2.open a txt file
